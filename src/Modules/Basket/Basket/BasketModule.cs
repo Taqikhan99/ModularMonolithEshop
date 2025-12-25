@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,13 @@ namespace Basket
             // services.AddScoped<IBasketService, BasketService>();
             // services.AddScoped<IBasketRepository, BasketRepository>();
             return services;
+        }
+
+        // for the pipeline
+        public static IApplicationBuilder UseBasketModule(this IApplicationBuilder app)
+        {
+            // Configure middleware, endpoints, etc. related to the Basket module here.
+            return app;
         }
     }
 }

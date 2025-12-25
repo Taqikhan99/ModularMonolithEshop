@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -19,6 +20,13 @@ namespace Catalog
             // services.AddScoped<ICatalogService, CatalogService>();
             // services.AddScoped<ICatalogRepository, CatalogRepository>();
             return services;
+        }
+
+        //for the pipeline
+        public static IApplicationBuilder UseCatalogModule(this IApplicationBuilder app)
+        {
+            // Configure middleware, endpoints, etc. related to the Catalog module here.
+            return app;
         }
     }
 }

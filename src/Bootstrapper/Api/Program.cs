@@ -1,6 +1,3 @@
-using Basket;
-using Catalog;
-using Ordering;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,5 +14,11 @@ builder.Services
 var app = builder.Build();
 
 //Request pipeline will be configured here using middleware calls
+
+app.
+    UseCatalogModule()
+   .UseBasketModule()
+   .UseOrderingModule();
+
 
 app.Run();
